@@ -16,7 +16,42 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
+  String palCheck = noCapitals(noSpaces(word)); 
+  String checkPal = backWard(palCheck);
+    if (palCheck.equals(checkPal))    
+    {
+      return true;
+    }
+    
+   return false;
+  
+  
+ }
+public String noSpaces(String word)
+{
+ String spaceless = new String();
+  for(int i = 0; i < word.length(); i++)
+  {
+   if(Character.isLetter(word.charAt(i))== true)
+   {
+    spaceless = spaceless + word.charAt(i);
+   }
+  }
+  return spaceless;
 }
+public String noCapitals(String word)
+{
+ String capless = new String(word.toLowerCase());
+ 
+ return capless;
 
+}
+public String backWard(String word)
+{
+  String back = new String();
+  for (int l = word.length()-1; l >= 0; l--) 
+   {
+    back = back + word.charAt(l);
+   }
+   return back;
+}
